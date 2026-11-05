@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+</head>
+<body dir="rtl">
+    <h1>تبریک کد تخفیف درست است.</h1>
+    <div>
+        {% if coupon %}
+            <p>{{ coupon.code }}</p>
+            <p>{{ coupon.valid_from }}</p>
+            <p>{{ coupon.valid_to }}</p>
+            <p>وضعیت :
+            {% if coupon.active %}فعال
+            {% else %}غیرفعال
+            {% endif %}</p>
+        {% else %}
+            <p>هیچ کد تخفیفی اعمال نشده</p>
+        {% endif %}
+
+        <a href="{% url 'coupon_form' %}">برگشت</a>
+    </div>
+</body>
+</html>

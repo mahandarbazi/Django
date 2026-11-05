@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <title>Teachers</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Teachers Registered</h1>
+        <a href="{% url 'add' %}" class="btn btn-success">Add Teacher</a>
+        {% for teacher in teachers %}
+        <h2>Name:{{ teacher.name }}</h2>
+        <h2>Email:{{ teacher.email }}</h2>
+        <h2>Phone:{{ teacher.phone_number }}</h2>
+        <h2>Bio:{{ teacher.bio }}</h2>
+        <a href="{% url 'update' teacher.id %}" class="btn btn-primary">update</a>
+        <a href="{% url 'delete' teacher.id %}" class="btn btn-danger">delete</a>
+        <hr>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
